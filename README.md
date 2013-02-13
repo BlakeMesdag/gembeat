@@ -6,7 +6,7 @@ Gembeat enables you to automatically send a summary of all the current gems in y
 
 Add this line to your application's Gemfile:
 
-    gem 'gembeat', :require => 'gembeat'
+    gem 'gembeat'
 
 And then execute:
 
@@ -18,7 +18,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add a yaml config to config/gembeat.yml:
+
+``` yaml
+token: token
+pulse_url: http://gembeat-server.tld/pulse
+```
+
+Place this in production.rb:
+
+``` ruby
+config.after_initialize do
+  gembeat_config = YAML.load_file("#{Rails.root.to_s}/config/gembeat.yml")
+  Gembeat.token = gembeat_config["token"]
+  Gembeat.pulse_url = gembeat_config["pulse_url"]
+  Gembeat.send_pulse
+end
+```
 
 ## Contributing
 
