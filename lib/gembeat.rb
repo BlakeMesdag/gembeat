@@ -9,13 +9,21 @@ module Gembeat
 
   def self.setup!
     config = YAML.load_file("#{Rails.root.to_s}/config/gembeat.yml")
-    self.token = config["token"]
-    self.pulse_url = config["pulse_url"]
+
+    if config["token"] && config["pulse_url"]
+      self.token = config["token"]
+      self.pulse_url = config["pulse_url"]
+      true
+    else
+      puts "[Gembeat] Config file not found, you will need to manually initialize and send a pulse."
+      false
+    end
   end
 
   def self.setup_and_send_pulse!
-    self.setup!
-    self.send_pulse
+    if self.setup!
+      self.send_pulse
+    end
   end
 
   def self.specs
