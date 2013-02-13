@@ -2,6 +2,7 @@ require "gembeat/version"
 require 'net/http'
 require 'uri'
 require 'json'
+require 'yaml'
 
 module Gembeat
   mattr_accessor :token
