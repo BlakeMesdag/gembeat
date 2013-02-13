@@ -56,6 +56,4 @@ module Gembeat
   end
 end
 
-Thread.new do
-  Gembeat.setup_and_send_pulse!
-end
+Gembeat.setup_and_send_pulse!
