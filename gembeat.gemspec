@@ -8,9 +8,9 @@ Gem::Specification.new do |gem|
   gem.version       = Gembeat::VERSION
   gem.authors       = ["Blake Mesdag"]
   gem.email         = ["blakemesdag@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = "A gem for enabling you to publish your apps gems on deploy to a central server"
+  gem.summary       = "Enables you to send a pulse to a gembeat server for tracking gems to assist you in upgrading/managing multiple apps"
+  gem.homepage      = "http://github.com/BlakeMesdag/gembeat"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
