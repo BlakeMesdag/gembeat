@@ -42,7 +42,7 @@ module Gembeat
   end
 
   def self.ca_file
-    @cert ||= File.expand_path("../../data/ca_cert.pem", __FILE__)
+    @cert ||= File.expand_path("../../data/ca-certificates.crt", __FILE__)
   end
 
   def self.ca_file=(value)
