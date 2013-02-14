@@ -25,14 +25,14 @@ module Gembeat
 
   def self.dependencies_hash
     @depencies_hash ||= self.specs.map do |name, spec|
-      {name: name, version: spec.version.to_s}
+      {:name => name, :version => spec.version.to_s}
     end
   end
 
   def self.application_hash
     {
-      application: {
-        token: self.token, dependencies: self.dependencies_hash
+      :application => {
+        :token => self.token, :dependencies => self.dependencies_hash
       }
     }
   end
