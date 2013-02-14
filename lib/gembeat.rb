@@ -13,6 +13,10 @@ module Gembeat
         def self.#{name}
           @@#{name}
         end
+
+        def self.#{name}=(value)
+          @@#{name} = value
+        end
       "
     end
   end
