@@ -6,19 +6,17 @@ require 'yaml'
 
 module Gembeat
   [:token, :use_ssl, :pulse_url].each do |name|
-    define_method name do
-      class_eval "
-        @@#{name} = nil unless defined? @@#{name}
+    class_eval "
+      @@#{name} = nil unless defined? @@#{name}
 
-        def self.#{name}
-          @@#{name}
-        end
+      def self.#{name}
+        @@#{name}
+      end
 
-        def self.#{name}=(value)
-          @@#{name} = value
-        end
-      "
-    end
+      def self.#{name}=(value)
+        @@#{name} = value
+      end
+    "
   end
 
   def self.specs
