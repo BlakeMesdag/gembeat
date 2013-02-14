@@ -57,7 +57,7 @@ module Gembeat
     if self.use_ssl
       http.use_ssl = true
       http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-      http.ca_path = self.ca_file
+      http.ca_file = http.ca_path = self.ca_file
     end
 
     response = http.request(request)
