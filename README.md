@@ -32,6 +32,7 @@ config.after_initialize do
   gembeat_config = YAML.load_file("#{Rails.root.to_s}/config/gembeat.yml")
   Gembeat.token = gembeat_config["token"]
   Gembeat.pulse_url = gembeat_config["pulse_url"]
+  Gembeat.use_ssl # (Optional) Use a secure connection
   Gembeat.send_pulse
 end
 ```
