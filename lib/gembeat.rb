@@ -5,7 +5,7 @@ require 'json'
 require 'yaml'
 
 module Gembeat
-  [:token, :use_ssl, :pulse_url].each do |name|
+  [:token, :use_ssl, :pulse_url, :name, :registration_token].each do |name|
     class_eval "
       @@#{name} = nil unless defined? @@#{name}
 
@@ -30,11 +30,16 @@ module Gembeat
   end
 
   def self.application_hash
-    {
-      :application => {
-        :token => self.token, :dependencies => self.dependencies_hash
+    hash = if self.registration_token
+      {
+        :registration_token => self.registration_token
       }
-    }
+    else
+      {}
+    end
+
+    hash[:application] = {:token => self.token, :dependencies => self.dependencies_hash, :name => self.name}
+    hash
   end
 
   def self.gembeat_uri
