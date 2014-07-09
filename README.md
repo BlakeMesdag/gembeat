@@ -1,6 +1,6 @@
 # Gembeat
 
-Gembeat enables you to automatically send a summary of all the current gems in your application on itialize to a central server.
+Gembeat enables you to automatically send a summary of all the current gems in your application on initialization to a central server.
 
 ## Installation
 
